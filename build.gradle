@@ -1,0 +1,80 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'findbugs'
+    id 'pmd'
+    id 'org.jenkins-ci.jpi' version '0.27.0'
+    id 'com.github.gradle-git-version-calculator' version '1.1.0'
+}
+
+gitVersionCalculator {
+    prefix = ""
+    withSnapshot = true
+}
+
+group 'nl.arnom.jenkins'
+version gitVersionCalculator.calculateVersion()
+description = 'Prefer builds started by users or for previously failed builds. Allows you to "skip" the line!'
+
+jenkinsPlugin {
+    // version of Jenkins core this plugin depends on, must be 1.420 or later
+    coreVersion = '2.131'
+
+    // ID of the plugin, defaults to the project name without trailing '-plugin'
+    shortName = 'fast-track'
+
+    // human-readable name of plugin
+    displayName = 'Fast Track'
+
+    // URL for plugin on Jenkins wiki or elsewhere
+    url = 'https://github.com/itavero/jenkins-fast-track'
+
+    // plugin URL on GitHub, optional
+    gitHubUrl = 'https://github.com/itavero/jenkins-fast-track'
+
+    // the output directory for the localizer task relative to the project root, defaults to the value shown
+    localizerOutputDir = "${project.buildDir}/generated-src/localizer"
+
+    // skip configuration of publications and repositories for the Maven Publishing plugin, defaults to true
+    configurePublishing = false
+
+    // plugin file extension, either 'jpi' or 'hpi', defaults to 'hpi'
+    fileExtension = 'jpi'
+
+    // the developers section is optional, and corresponds to the POM developers section
+    developers {
+        developer {
+            id 'itavero'
+            name 'Arno Moonen'
+            email 'arno@moonen.xyz'
+        }
+    }
+
+    // the licenses section is optional, and corresponds to the POM licenses section
+    licenses {
+        license {
+            name 'MIT License'
+            url 'https://opensource.org/licenses/MIT'
+            distribution 'repo'
+        }
+    }
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+
+repositories {
+    maven {
+        url 'http://repo.jenkins-ci.org/public/'
+    }
+    jcenter()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
