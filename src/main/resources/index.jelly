@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    Be more in control over the priorities of jobs waiting to be build.
+</div>

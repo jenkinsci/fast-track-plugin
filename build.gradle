@@ -53,8 +53,8 @@ jenkinsPlugin {
     // the licenses section is optional, and corresponds to the POM licenses section
     licenses {
         license {
-            name 'MIT License'
-            url 'https://opensource.org/licenses/MIT'
+            name 'BSD-3-Clause'
+            url 'https://opensource.org/licenses/BSD-3-Clause'
             distribution 'repo'
         }
     }
