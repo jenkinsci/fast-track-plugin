@@ -14,7 +14,7 @@ gitVersionCalculator {
 
 group 'nl.arnom.jenkins'
 version gitVersionCalculator.calculateVersion()
-description = 'Prefer builds started by users or for previously failed builds. Allows you to "skip" the line!'
+description = 'Optimize the build queue using some simple (configurable) rules.'
 
 jenkinsPlugin {
     // version of Jenkins core this plugin depends on, must be 1.420 or later
@@ -24,7 +24,7 @@ jenkinsPlugin {
     shortName = 'fast-track'
 
     // human-readable name of plugin
-    displayName = 'Fast Track'
+    displayName = 'Fast Track Queue Optimizer'
 
     // URL for plugin on Jenkins wiki or elsewhere
     url = 'https://github.com/itavero/jenkins-fast-track'
