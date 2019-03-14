@@ -94,7 +94,6 @@ public class LongerWaitTimeSortRule extends SortRule {
             }
         }
 
-
         public FormValidation doCheckDeltaMinutes(@QueryParameter String value, @QueryParameter String durationMinutes) {
             Integer duration = null;
             try {
