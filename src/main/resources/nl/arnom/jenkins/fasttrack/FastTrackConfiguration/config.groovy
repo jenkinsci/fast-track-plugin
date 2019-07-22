@@ -4,7 +4,7 @@ import lib.FormTagLib
 
 
 def f = namespace(FormTagLib)
-f.section(title: _('Fast Track Queue Sorter')) {
+f.section(title: _('Fast Track Queue Optimizer')) {
     f.entry(title: _('Rules')) {
         f.repeatableHeteroProperty(
                 field: "sortRules",

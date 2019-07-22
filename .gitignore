@@ -7,7 +7,6 @@ pom.xml.*
 build/
 out/
 work/
-!gradle-wrapper.jar
 **/build/
 *.class
 *.log
@@ -22,3 +21,4 @@ work/
 *.hpi
 .mvn/
 .gradletasknamecache
+!gradle-wrapper.jar

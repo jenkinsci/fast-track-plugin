@@ -49,10 +49,8 @@ public class LongerWaitTimeSortRule extends SortRule {
             if (firstWaitTime > duration) {
                 return SortResult.FIRST;
             }
-        } else if (secondWaitTime > firstWaitTime) {
-            if (secondWaitTime > duration) {
-                return SortResult.SECOND;
-            }
+        } else if ((secondWaitTime > firstWaitTime) && (secondWaitTime > duration)) {
+            return SortResult.SECOND;
         }
 
         return SortResult.NO_PREFERENCE;
@@ -93,7 +91,6 @@ public class LongerWaitTimeSortRule extends SortRule {
                 return FormValidation.error(e, "Valid positive number required.");
             }
         }
-
 
         public FormValidation doCheckDeltaMinutes(@QueryParameter String value, @QueryParameter String durationMinutes) {
             Integer duration = null;

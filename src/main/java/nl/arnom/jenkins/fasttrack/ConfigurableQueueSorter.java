@@ -19,12 +19,16 @@ public class ConfigurableQueueSorter extends AbstractQueueSorterImpl {
 
     private final static Logger LOGGER = Logger.getLogger(ConfigurableQueueSorter.class.getName());
 
-    @SuppressWarnings("deprecation")
     @Initializer(after = JOB_LOADED)
     public static void setupQueueSorter() {
         LOGGER.info("Setting up " + ConfigurableQueueSorter.class.getSimpleName());
-        Queue q = Jenkins.getInstance().getQueue();
-        q.setSorter(get());
+        Jenkins jenkins = Jenkins.getInstanceOrNull();
+        if (jenkins != null) {
+            Queue q = jenkins.getQueue();
+            q.setSorter(get());
+        } else {
+            LOGGER.severe("Cannot get instance of Jenkins");
+        }
     }
 
     public static ConfigurableQueueSorter get() {

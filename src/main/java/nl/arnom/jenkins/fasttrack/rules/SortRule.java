@@ -22,6 +22,13 @@ public abstract class SortRule extends AbstractDescribableImpl<SortRule> impleme
         return false;
     }
 
+    @Override
+    public int hashCode() {
+        // By default assume that SortRules don't have any properties,
+        // so they can be considered equal if they are of the same type.
+        return this.getClass().getCanonicalName().hashCode();
+    }
+
     public enum SortResult {
         NO_PREFERENCE,
         FIRST,
