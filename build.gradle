@@ -16,9 +16,9 @@ group 'nl.arnom.jenkins'
 version gitVersionCalculator.calculateVersion()
 description = 'Optimize the build queue using some simple (configurable) rules.'
 
-jenkinsPlugin {
+    jenkinsPlugin {
     // version of Jenkins core this plugin depends on, must be 1.420 or later
-    coreVersion = '2.131'
+    coreVersion = '2.138.1'
 
     // ID of the plugin, defaults to the project name without trailing '-plugin'
     shortName = 'fast-track'
@@ -27,10 +27,10 @@ jenkinsPlugin {
     displayName = 'Fast Track Queue Optimizer'
 
     // URL for plugin on Jenkins wiki or elsewhere
-    url = 'https://github.com/itavero/jenkins-fast-track'
+    url = 'https://github.com/jenkinsci/fast-track-plugin'
 
     // plugin URL on GitHub, optional
-    gitHubUrl = 'https://github.com/itavero/jenkins-fast-track'
+    gitHubUrl = 'https://github.com/jenkinsci/fast-track-plugin'
 
     // the output directory for the localizer task relative to the project root, defaults to the value shown
     localizerOutputDir = "${project.buildDir}/generated-src/localizer"
@@ -53,8 +53,8 @@ jenkinsPlugin {
     // the licenses section is optional, and corresponds to the POM licenses section
     licenses {
         license {
-            name 'BSD-3-Clause'
-            url 'https://opensource.org/licenses/BSD-3-Clause'
+            name 'MIT'
+            url 'https://opensource.org/licenses/MIT'
             distribution 'repo'
         }
     }
@@ -62,7 +62,7 @@ jenkinsPlugin {
 
 tasks.withType(FindBugs) {
     reports {
-        xml.enabled false
+        xml.enabled true
         html.enabled true
     }
 }
