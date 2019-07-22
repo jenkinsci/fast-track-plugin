@@ -35,9 +35,6 @@ description = 'Optimize the build queue using some simple (configurable) rules.'
     // the output directory for the localizer task relative to the project root, defaults to the value shown
     localizerOutputDir = "${project.buildDir}/generated-src/localizer"
 
-    // skip configuration of publications and repositories for the Maven Publishing plugin, defaults to true
-    configurePublishing = false
-
     // plugin file extension, either 'jpi' or 'hpi', defaults to 'hpi'
     fileExtension = 'jpi'
 
