@@ -59,7 +59,7 @@ description = 'Optimize the build queue using some simple (configurable) rules.'
 
 repositories {
     maven {
-        url 'http://repo.jenkins-ci.org/public/'
+        url 'https://repo.jenkins-ci.org/public/'
     }
     jcenter()
 }
